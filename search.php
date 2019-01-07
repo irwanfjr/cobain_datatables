@@ -10,12 +10,17 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
+    <style>
+    /*merubah ke header*/
+    tfoot { display: table-header-group; }
+    </style>
+
     <script>
         $(document).ready(function() {
             // Setup - add a text input to each footer cell
             $('#example tfoot th').each( function () {
                 var title = $(this).text();
-                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
             } );
             // DataTable
             var table = $('#example').DataTable();
@@ -33,14 +38,15 @@
                 } );
             } );
 
-
         });//end.document.ready
     </script>
 </head>
 <body>
-    <div class="wrapper">        
+    <div class="container">
+    <div class="jumbotron"> <h2>Individual column searching (text inputs)</h2></div>    
+    
         <!-- ini table -->
-        <table id="example" class="table table-bordered table-responsive" style="width:100%">
+        <table id="example" class="table table-hover" style="width: auto" >
             <thead>
                 <tr>
                     <th>Name</th>
@@ -523,7 +529,7 @@
             </tbody>
 
         </table><!-- end.table -->
-
+    
     </div><!-- end.container -->
 
 </body>
